@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -60,5 +61,14 @@ fun ActividadItem(
     Column {
         Text(text = nombre)
         Text(text = categoria)
+        Button (
+            onClick = {
+                // acción al usar
+            }
+        ) {
+            Text("Ver detalle")
+        }
     }
+
 }
+
