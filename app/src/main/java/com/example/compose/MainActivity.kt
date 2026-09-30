@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,10 +28,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ActividadItem(
-                        nombre = "Taller de Android",
-                        categoria = "Tecnología"
-                    )
+                    PantallaActividades()
                 }
             }
         }
@@ -66,11 +65,17 @@ fun ActividadItem(
         modifier = Modifier.padding(16.dp)
     ) {
 
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ){
+
+    }
         Image(
-            painter = painterResource(R.mipmap.ic_launcher),
+            painter = painterResource(R.drawable.ic_launcher_background),
             contentDescription = "Imagen de la actividad",
-            modifier = Modifier.size(100.dp)
+            modifier = Modifier.size(200.dp)
         )
+
 
         Text(text = nombre)
         Text(text = categoria)
@@ -80,5 +85,24 @@ fun ActividadItem(
         ) {
             Text("Ver detalle")
         }
+    }
+}
+
+@Composable
+fun PantallaActividades() {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+
+        ActividadItem(
+            nombre = "Taller de Android",
+            categoria = "Tecnología"
+        )
+
+        ActividadItem(
+            nombre = "Ruta de senderismo",
+            categoria = "Deporte"
+        )
+
     }
 }
