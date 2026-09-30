@@ -26,10 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ActividadItem(
-                        nombre = "Taller de Android",
-                        categoria = "Tecnología"
-                    )
+                    PantallaActividades()
                 }
             }
         }
@@ -80,5 +77,22 @@ fun ActividadItem(
         ) {
             Text("Ver detalle")
         }
+    }
+}
+
+@Composable
+fun PantallaActividades() {
+    Column {
+
+        ActividadItem(
+            nombre = "Taller de Android",
+            categoria = "Tecnología"
+        )
+
+        ActividadItem(
+            nombre = "Ruta de senderismo",
+            categoria = "Deporte"
+        )
+
     }
 }
