@@ -14,7 +14,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -91,8 +97,12 @@ fun ActividadItem(
 @Composable
 fun PantallaActividades() {
     Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
+
+        Contador()
+
+        CampoNombre()
 
         ActividadItem(
             nombre = "Taller de Android",
@@ -104,5 +114,50 @@ fun PantallaActividades() {
             categoria = "Deporte"
         )
 
+    }
+}
+
+
+@Composable
+fun Contador(modifier : Modifier = Modifier) {
+
+    var contador by remember {
+        mutableIntStateOf(20)
+    }
+
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ) {
+
+        Text("Has pulsado $contador veces")
+
+        Button(
+            onClick = {
+                contador+=2
+            }
+        ) {
+            Text("Pulsar")
+        }
+    }
+}
+
+
+@Composable
+fun CampoNombre() {
+
+    var nombre by remember {
+        mutableStateOf("")
+    }
+
+    Column {
+
+        TextField(
+            value = nombre,
+            onValueChange = { nuevoNombre ->
+                nombre = nuevoNombre
+            }
+        )
+
+        Text("Nombre introducido: $nombre")
     }
 }
