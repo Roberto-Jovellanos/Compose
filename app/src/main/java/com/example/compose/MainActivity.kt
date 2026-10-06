@@ -16,16 +16,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.ui.theme.ComposeTheme
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.RadioButton
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaActividades()
+                    PantallaInscripcion(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -95,14 +96,43 @@ fun ActividadItem(
 }
 
 @Composable
+fun CampoNombre(
+    nombre: String,
+    onNombreChange: (String) -> Unit
+) {
+    TextField(
+        value = nombre,
+        onValueChange = onNombreChange,
+        label = { Text("Nombre") }
+    )
+}
+
+@Composable
+fun CampoEmail(
+    email: String,
+    onEmailChange: (String) -> Unit
+) {
+    TextField(
+        value = email,
+        onValueChange = onEmailChange,
+        label = { Text("Email") }
+    )
+}
+
+
+
+@Composable
 fun PantallaActividades() {
     Column(
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
 
+
+
+
         Contador()
 
-        CampoNombre()
+
 
         ActividadItem(
             nombre = "Taller de Android",
@@ -122,7 +152,7 @@ fun PantallaActividades() {
 fun Contador(modifier : Modifier = Modifier) {
 
     var contador by remember {
-        mutableIntStateOf(20)
+        mutableIntStateOf(0)
     }
 
     Column(
@@ -138,26 +168,5 @@ fun Contador(modifier : Modifier = Modifier) {
         ) {
             Text("Pulsar")
         }
-    }
-}
-
-
-@Composable
-fun CampoNombre() {
-
-    var nombre by remember {
-        mutableStateOf("")
-    }
-
-    Column {
-
-        TextField(
-            value = nombre,
-            onValueChange = { nuevoNombre ->
-                nombre = nuevoNombre
-            }
-        )
-
-        Text("Nombre introducido: $nombre")
     }
 }
