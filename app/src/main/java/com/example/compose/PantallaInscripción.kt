@@ -2,6 +2,7 @@ package com.example.compose
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -15,9 +16,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.RadioButton
+import androidx.compose.ui.Alignment
 
 
-    @Composable
+@Composable
     fun PantallaInscripcion(modifier : Modifier = Modifier) {
 
         var nombre by remember {
@@ -26,6 +28,14 @@ import androidx.compose.material3.RadioButton
 
         var email by remember {
             mutableStateOf("")
+        }
+
+        var recordatorio by remember {
+            mutableStateOf(false)
+        }
+
+        var turno by remember {
+            mutableStateOf("Mañana")
         }
 
         Column(
@@ -50,6 +60,34 @@ import androidx.compose.material3.RadioButton
                     email = nuevoEmail
                 }
             )
+
+            Text("Elige un turno")
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = turno == "Mañana",
+                    onClick = {
+                        turno = "Mañana"
+                    }
+                )
+
+                Text("Mañana")
+            }
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(
+                    checked = recordatorio,
+                    onCheckedChange = { nuevoValor ->
+                        recordatorio = nuevoValor
+                    }
+                )
+
+                Text("Quiero recibir un recordatorio")
+            }
 
             Button(
                 onClick = {
