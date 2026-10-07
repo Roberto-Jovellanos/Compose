@@ -22,11 +22,25 @@ import androidx.compose.ui.Alignment
 
 @Composable
 fun PantallaInscripcion(modifier: Modifier = Modifier) {
-    var nombre by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var recordatorio by remember { mutableStateOf(false) }
-    var turno by remember { mutableStateOf("Mañana") }
-    var resumen by remember { mutableStateOf("") }
+    var nombre by remember {
+        mutableStateOf("")
+    }
+
+    var email by remember {
+        mutableStateOf("")
+    }
+
+    var recordatorio by remember {
+        mutableStateOf(false)
+    }
+
+    var turno by remember {
+        mutableStateOf("Mañana")
+    }
+
+    var resumen by remember {
+        mutableStateOf("")
+    }
 
 
     Column(
