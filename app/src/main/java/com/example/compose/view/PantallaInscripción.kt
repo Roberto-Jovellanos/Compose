@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -46,6 +47,7 @@ fun PantallaInscripcion(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
+            .imePadding()
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
@@ -114,7 +116,8 @@ fun PantallaInscripcion(modifier: Modifier = Modifier) {
         }
 
         if (resumen.isNotEmpty()) {
-            Text(text = resumen)
+            Text("Resumen de la inscripción")
+            Text(resumen)
         }
     }
 }
