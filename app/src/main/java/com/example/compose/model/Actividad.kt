@@ -1,4 +1,6 @@
-package com.example.compose
+package com.example.compose.model
+
+import com.example.compose.R
 
 /* var es variable y val es que no cambiara */
 

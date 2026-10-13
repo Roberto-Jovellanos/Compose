@@ -24,9 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.compose.model.actividadesEjemplo
 import com.example.compose.ui.theme.ComposeTheme
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.RadioButton
+import com.example.compose.view.PantallaActividades
+import com.example.compose.view.PantallaDetalle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,12 +36,21 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PantallaInscripcion(modifier = Modifier.padding(innerPadding))
+                    //PantallaInscripcion(modifier = Modifier.padding(innerPadding))
+                    //PantallaActividades(modifier = Modifier.padding(innerPadding))
+                    PantallaDetalle(
+                        actividad = actividadesEjemplo[0],
+                        onInscribirse ={
+                            println("Inscribirse")
+
+                        }
+                    )
+                    }
                 }
             }
         }
     }
-}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -120,19 +130,14 @@ fun CampoEmail(
 }
 
 
-
+/*
 @Composable
 fun PantallaActividades() {
     Column(
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
 
-
-
-
         Contador()
-
-
 
         ActividadItem(
             nombre = "Taller de Android",
@@ -146,8 +151,7 @@ fun PantallaActividades() {
 
     }
 }
-
-
+*/
 @Composable
 fun Contador(modifier : Modifier = Modifier) {
 

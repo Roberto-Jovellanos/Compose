@@ -1,4 +1,4 @@
-package com.example.compose
+package com.example.compose.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,6 +19,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.RadioButton
 import androidx.compose.ui.Alignment
+import com.example.compose.CampoEmail
+import com.example.compose.CampoNombre
 
 
 @Composable
