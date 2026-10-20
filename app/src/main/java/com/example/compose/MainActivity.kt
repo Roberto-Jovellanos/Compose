@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.model.actividadesEjemplo
 import com.example.compose.ui.theme.ComposeTheme
+import com.example.compose.view.ActividadesApp
 import com.example.compose.view.PantallaActividades
 import com.example.compose.view.PantallaDetalle
 
@@ -38,6 +39,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     //PantallaInscripcion(modifier = Modifier.padding(innerPadding))
                     //PantallaActividades(modifier = Modifier.padding(innerPadding))
+                    /*
                     PantallaDetalle(
                         actividad = actividadesEjemplo[0],
                         onInscribirse ={
@@ -45,6 +47,11 @@ class MainActivity : ComponentActivity() {
 
                         }
                     )
+                    */
+                        ActividadesApp(
+                            modifier = Modifier.padding(innerPadding)
+                        )
+
                     }
                 }
             }

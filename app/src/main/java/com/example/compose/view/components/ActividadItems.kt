@@ -17,7 +17,10 @@ import com.example.compose.model.Actividad
 
 
 @Composable
-fun ActividadItems(actividad: Actividad) {
+fun ActividadItems(
+    actividad: Actividad,
+    onVerDetalle: () -> Unit,
+    ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -41,6 +44,7 @@ fun ActividadItems(actividad: Actividad) {
 
         Button(
             onClick = {
+                onVerDetalle
                 println("Actividad seleccionada: ${actividad.nombre}")
             },
             modifier = Modifier.fillMaxWidth()
